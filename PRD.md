@@ -2,11 +2,13 @@
 
 ## 1. Product Summary
 
-Sammy Crypto Portfolio is a premium multi-page personal portfolio website for Sammy, focused on his Web3 identity, content creation, ghostwriting, community work, marketing support, and project experience.
+Sammy Crypto Portfolio is a premium, multi-page personal portfolio website for Sammy, focused on his Web3 identity, content creation, ghostwriting, community work, marketing support, and project experience.
 
-The site should feel like a refined digital archive rather than a generic agency or résumé website. It will borrow UX and presentation ideas from the PinnacleCrypt reference while developing a distinct identity around Sammy's own profile image, visual palette, work, and voice.
+The site should feel like a refined digital archive rather than a generic agency or résumé website. It should present Sammy's identity, work, and voice through a distinct visual system built around his profile image, color palette, content archive, and project history.
 
 The website should be mobile-first, highly visual, fast, and easy to navigate.
+
+---
 
 ## 2. Primary Goal
 
@@ -17,6 +19,8 @@ The website should make it easy for visitors to:
 - See projects and brands he has worked with.
 - Understand the services he offers.
 - Contact him quickly through Telegram, X, or another approved channel.
+
+---
 
 ## 3. Target Audience
 
@@ -31,7 +35,9 @@ Primary audiences:
 - Projects looking for content, community, messaging, or launch support.
 - Potential collaborators and partners.
 
-## 4. Information Architecture
+---
+
+## 4. Core Information Architecture
 
 The main navigation should contain:
 
@@ -44,62 +50,63 @@ The main navigation should contain:
 
 The navigation should be accessed through a `MENU` control in the top-right of the site.
 
-The website must be a true multi-page experience. Each menu item should have its own route/page rather than behaving as sections on a single long page.
+The site must be a true multi-page experience. Each item above should have its own route/page rather than functioning as sections on one long homepage.
 
 ---
 
 # 5. Global Design System — V1
 
-## Core Aesthetic
+## Visual Direction
 
-- Dark editorial Web3 portfolio.
-- Archive/system-inspired visual language.
-- Premium and minimal rather than crowded.
-- Strong mobile-first presentation.
+The site should use a dark editorial/Web3 archive aesthetic.
 
-## Visual Inspiration
+Core visual principles:
 
-- PinnacleCrypt: archive feel, structured cards, page labels, typography hierarchy, menu behavior and system-style metadata.
-- RaynerTech references: strong hero presence, bold spacing, premium CTA treatment and mobile layout.
-- Sammy's profile image: final color identity and overall personality.
+- Archive/system-inspired structure for page identity, metadata, navigation, and content organization.
+- Bold spacing and strong visual hierarchy.
+- Large, deliberate CTA treatment.
+- Premium mobile-first layouts.
+- Sammy's own profile image as the foundation of the color identity and overall personality.
 
 ## Color Direction
 
+Base palette:
+
 - Near-black / charcoal background.
-- Purple / muted lavender as primary accent.
-- Soft off-white for main text.
+- Purple / muted lavender as the primary Sammy accent.
+- Soft off-white for primary text.
 - Muted grey for secondary text.
-- Warm gold / amber used only as a subtle secondary accent.
+- Warm gold / amber as a very subtle secondary accent.
 
 Exact hex values will be selected during implementation.
 
 ## Typography Direction
 
-Use a mix of:
+Use a combination of:
 
-- Bold modern sans-serif for major headings.
+- Bold modern sans-serif for major headlines.
 - Clean sans-serif for body copy.
-- Monospace for labels, page numbers, metadata, categories, dates and system-style text.
+- Monospace for labels, categories, dates, metadata, page numbering, and system-style UI text.
 - Optional editorial serif for major statement text if it strengthens the design.
 
 ## Cards
 
 Cards should:
 
-- Use thin borders.
-- Have rounded corners.
-- Provide generous spacing.
-- Feel like archive/system records.
-- Avoid visual clutter.
+- use thin borders
+- have rounded corners
+- provide generous spacing
+- feel like archive/system records
+- avoid visual clutter
 
 ## Buttons
 
 Buttons should:
 
-- Be large and obvious.
-- Be touch-friendly.
-- Often span most of the available width on mobile.
-- Use clear primary and secondary states.
+- be large and obvious
+- be touch-friendly
+- often span most of the available width on mobile
+- use clear primary and secondary states
 
 Telegram should generally be the strongest conversion CTA.
 
@@ -109,11 +116,11 @@ Global header:
 
 - Sammy brand/name on the left.
 - `MENU` on the right.
-- Sticky or persistent where appropriate.
+- Sticky or persistent while scrolling where appropriate.
 
 ## Menu
 
-The menu should open as a full-screen or near-full-screen overlay and list:
+The menu should open as a full-screen or near-full-screen overlay and clearly list:
 
 - Home
 - Create
@@ -126,7 +133,7 @@ The current page should have a visible active state.
 
 ## Page Identity
 
-Interior pages should use numbered system labels:
+Each page should use a numbered system label:
 
 - `01 / HOME`
 - `02 / CREATE`
@@ -141,14 +148,16 @@ V1 animations should be subtle and intentional:
 
 - fades
 - smooth reveals
+- button/hover states
 - loader animation
 - menu transitions
-- button states
 - card micro-interactions
 
 Avoid excessive motion.
 
 ## Mobile-First Rules
+
+The site must be designed for mobile first.
 
 V1 should use:
 
@@ -160,6 +169,8 @@ V1 should use:
 - stacked CTAs
 
 ## Global Footer
+
+Footer should remain consistent across all pages.
 
 Expected footer items:
 
@@ -184,7 +195,7 @@ The homepage should not try to contain the entire portfolio.
 
 ## Loader / Intro Experience
 
-The V1 loader is a minimalist Sammy identity intro rather than a heavy terminal-style percentage loader.
+V1 uses a minimalist Sammy identity loader.
 
 Requirements:
 
@@ -192,14 +203,14 @@ Requirements:
 - Sammy's profile image centered.
 - Circular purple/lavender glow around the image.
 - Primary loading text such as `LOADING SAMMY'S PORTFOLIO`.
-- Secondary status text may rotate subtly, such as:
+- Secondary status text may subtly change, for example:
   - `Indexing archive...`
   - `Preparing content...`
   - `Loading work...`
 - Subtle pulse/glow/loading motion.
 - Smooth fade/reveal into the homepage.
 
-No progress percentage is required for V1.
+No heavy progress bar or percentage animation is required for V1.
 
 ## Header
 
@@ -245,8 +256,8 @@ Do not include in V1:
 
 - full theme customizer
 - custom color controls
-- large project archive on homepage
-- live token data on homepage
+- large project archive on the homepage
+- live token data on the homepage
 - long biography
 - testimonials
 - newsletter
@@ -263,7 +274,7 @@ Do not include in V1:
 
 Create is Sammy's content archive and proof library.
 
-It should show threads, articles, educational content, project writing and other written work Sammy has produced.
+It should show threads, articles, educational content, project writing, and other written work Sammy has produced.
 
 The menu name remains `Create`, while homepage CTA language may use `Explore Archive`.
 
@@ -340,7 +351,7 @@ Do not include in V1:
 
 Work is Sammy's proof-of-work/project archive.
 
-It should show projects, brands, communities and tokens Sammy has worked with, what his role was and the relevant proof/results.
+It should show projects, brands, communities, and tokens Sammy has worked with, what his role was, and the relevant proof/results.
 
 Create proves what Sammy has produced. Work proves who Sammy has worked with and what he contributed.
 
@@ -358,7 +369,7 @@ The final V1 dataset will be supplied and verified before implementation.
 ## Page Intro
 
 - `03 / WORK`
-- Strong introduction describing the projects and communities Sammy has helped through content, community, marketing and narrative.
+- Strong introduction describing the projects and communities Sammy has helped through content, community, marketing, and narrative.
 
 ## Filters
 
@@ -373,9 +384,9 @@ Possible filters:
 - Meme / Token
 - DeFi
 
-## Standard Project Cards
+## Project Cards
 
-Each project card should support:
+Each standard project card should support:
 
 - project logo/art
 - project name
@@ -394,7 +405,7 @@ Possible status states:
 
 ## Token / Meme Project Cards
 
-Token-based cards should additionally support live token information.
+Token-based project cards should additionally support live token information.
 
 V1 live-data requirements:
 
@@ -407,7 +418,7 @@ V1 live-data requirements:
 
 Market cap should be fetched from a live data source during implementation rather than hard-coded.
 
-If live data cannot be retrieved, the UI should fail gracefully instead of displaying stale or incorrect values.
+If live data cannot be retrieved, the UI should fail gracefully rather than displaying stale or incorrect values.
 
 Example fallback: `DATA UNAVAILABLE`.
 
@@ -446,7 +457,7 @@ Do not include in V1:
 
 Explain what Sammy can do for projects in a premium, structured way without making the page feel like a generic freelance marketplace.
 
-The presentation should borrow Pinnacle-style structured service modules.
+The presentation should use structured service modules that match the site's archive/system design language.
 
 ## Page Intro
 
@@ -564,7 +575,7 @@ Do not include in V1:
 
 ## Purpose
 
-Explain who Sammy is, how he works and why a visitor should trust him without duplicating Create, Work or Services.
+Explain who Sammy is, how he works, and why a visitor should trust him without duplicating Create, Work, or Services.
 
 ## Core Positioning
 
@@ -808,7 +819,7 @@ Collect:
 - updated Sammy biography
 - confirmed roles/capabilities
 - verified career stats
-- meaningful achievements
+- any achievements worth highlighting
 
 ## Contact
 
@@ -821,18 +832,18 @@ Collect:
 
 ## Legal/Footer
 
-Finalize:
+Collect:
 
-- Terms destination/copy
-- Privacy destination/copy
-- Disclaimer/Discover destination/copy
-- Cookies destination/copy
+- final naming and destination for Terms
+- Privacy
+- Disclaimer/Discover
+- Cookies
 
 ---
 
 # 14. Implementation Phases
 
-Development should follow this PRD instead of building pages randomly.
+Development should follow the PRD rather than building pages randomly.
 
 ## Phase 0 — Content & Asset Lock
 
@@ -849,7 +860,9 @@ Before coding the final experience:
 
 ## Phase 1 — Project Foundation
 
-Expected tasks later:
+Set up the application foundation.
+
+Expected tasks later may include:
 
 - scaffold project
 - establish route structure
@@ -954,7 +967,7 @@ Verify:
 
 When ready:
 
-- connect repository to Vercel
+- use the connected GitHub repository and Vercel project
 - configure environment variables if required
 - deploy production build
 - verify production routes
@@ -981,7 +994,7 @@ V1 is successful when:
 - the design is consistent across pages
 - mobile experience is strong
 - no unsupported or unverified claims are published
-- the site feels like Sammy's own portfolio rather than a direct copy of another reference site
+- the site feels distinctly like Sammy's own portfolio and visual identity
 
 ---
 
