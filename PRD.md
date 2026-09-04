@@ -751,6 +751,9 @@ These features are outside the initial scope across the entire website:
 - newsletter system
 - e-commerce/payment flow
 - booking system
+- production email inquiry forms via Resend until Sammy has a custom domain that can be verified for sending
+
+The planned email-form setup remains Resend, with submissions delivered to `Cryptocrewhub123@gmail.com` once a custom domain is owned and verified. The production implementation will keep `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `RESEND_FROM_EMAIL` in Vercel environment variables.
 
 These may be reconsidered after V1 is live and useful.
 
