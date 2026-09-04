@@ -59,7 +59,7 @@ export function HomeExperience() {
               <img className={styles.loaderPortrait} src="/sammy-pfp.webp" alt="" />
             </div>
             <p className={styles.loaderTitle}>LOADING SAMMY&apos;S PORTFOLIO</p>
-            <p className={styles.loaderStatus} aria-live="polite">
+            <p className={styles.loaderStatus} role="status" aria-live="polite">
               {loaderLines[statusIndex]}
             </p>
           </div>
