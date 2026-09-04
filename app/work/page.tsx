@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import styles from "./work.module.css";
 
 export const metadata: Metadata = { title: "Work" };
@@ -40,7 +41,7 @@ const projects: Project[] = [
     description:
       "BlockChip is the next chapter of the project previously known as Golden Donkey. Sammy stayed involved through the migration and now contributes to BlockChip through research, project support and core team work. The project is building around a casino-backed Web3 model with Megasino connected to the ecosystem.",
     result: "CONTINUED FROM GDK INTO BCP",
-    logo: "https://litter.catbox.moe/5pllrm.png",
+    logo: "/projects/blockchip.jpg",
     logoFallback: "BCP",
     dex: {
       chain: "base",
@@ -65,7 +66,7 @@ const projects: Project[] = [
     description:
       "Sammy worked with Smoking Chicken Fish during his earlier Web3 project work, supporting the project through community activity, visibility and promotional efforts.",
     result: "MEMECOIN COMMUNITY EXPERIENCE",
-    logo: "https://litter.catbox.moe/ahutgi.jpg",
+    logo: "/projects/scf.jpg",
     logoFallback: "SCF",
     dex: {
       chain: "solana",
@@ -89,7 +90,7 @@ const projects: Project[] = [
     description:
       "Sammy contributed to Shark Cat as part of his earlier memecoin work, supporting community activity and project visibility around one of Solana’s recognizable meme communities.",
     result: "SOLANA MEMECOIN EXPERIENCE",
-    logo: "https://tmpfiles.org/w4wOhWCIqTra/sharkcat_hat.jpg",
+    logo: "/projects/shark-cat.jpg",
     logoFallback: "SC",
     dex: {
       chain: "solana",
@@ -113,7 +114,7 @@ const projects: Project[] = [
     description:
       "Sammy helped push a TON sticker collection campaign, supporting the buy-side activity and visibility around the collection.",
     result: "70% OF COLLECTION SOLD",
-    logo: "https://tmpfiles.org/wSwShsrIloMf/astronaut_cat.jpg",
+    logo: "/projects/veve.jpg",
     logoFallback: "VV",
     links: [
       { label: "X ↗", href: "https://x.com/veve_tg?s=11" },
@@ -129,7 +130,7 @@ const projects: Project[] = [
     description:
       "Sammy worked around the Diamond Hands community as part of his Robinhood Chain memecoin experience, supporting visibility, engagement and project promotion.",
     result: "ROBINHOOD CHAIN EXPERIENCE",
-    logo: "https://tmpfiles.org/wjwJhDr6wCK7/diamond_hand.jpg",
+    logo: "/projects/hodl.jpg",
     logoFallback: "HODL",
     dex: {
       chain: "robinhood",
@@ -247,11 +248,19 @@ export default async function WorkPage() {
               return (
                 <article key={project.name} className={cardClass}>
                   <div className={styles.visual}>
-                    <div
-                      className={styles.logoPanel}
-                      style={project.logo ? { backgroundImage: `url(${project.logo})` } : undefined}
-                    >
-                      <span className={styles.logoFallback}>{project.logoFallback}</span>
+                    <div className={styles.logoPanel}>
+                      {project.logo ? (
+                        <Image
+                          className={styles.projectLogo}
+                          src={project.logo}
+                          alt=""
+                          width={192}
+                          height={192}
+                          priority={project.status === "ACTIVE"}
+                        />
+                      ) : (
+                        <span className={styles.logoFallback}>{project.logoFallback}</span>
+                      )}
                     </div>
                     <div className={styles.visualMeta}>
                       <span className={statusClass(project.status)}>{project.status}</span>
