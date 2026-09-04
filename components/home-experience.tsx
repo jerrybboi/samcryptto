@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./home-experience.module.css";
 
+const INTRO_SESSION_KEY = "sammy-intro-seen";
+
 const loaderLines = [
   "Indexing archive...",
   "Loading narratives...",
@@ -25,7 +27,7 @@ export function HomeExperience() {
     }
 
     try {
-      sessionStorage.setItem("sammy-intro-seen", "1");
+      sessionStorage.setItem(INTRO_SESSION_KEY, "1");
     } catch (_) {
       // The intro still works if session storage is unavailable.
     }
