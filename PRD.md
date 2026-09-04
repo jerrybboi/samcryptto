@@ -1029,3 +1029,488 @@ Still required before implementation:
 - final technical stack decisions
 
 No production coding should begin until the next implementation phase is explicitly approved.
+
+---
+
+# 17. Version History and Current Product State
+
+This section records how the shipped product evolved after the original V1 planning document above. The original V1 requirements are intentionally preserved as historical context.
+
+## V1.0 — Initial Launch
+
+V1.0 established the full portfolio product:
+
+- Six distinct routes: Home, Create, Work, Services, About, and Contact.
+- Responsive mobile and desktop layouts.
+- Dark and light theme support.
+- Create content archive and Work project showcase.
+- Telegram and X contact flows.
+- Verified project information and external redirects.
+- Live DexScreener-backed market-cap data where supported.
+- Legal pages and production SEO metadata.
+
+## V1.1 — Infrastructure and Conversion Upgrades
+
+V1.1 improved the shipped portfolio without changing its core purpose:
+
+- Custom production domain at `sammycryptto.fun` / `www.sammycryptto.fun`.
+- Resend-backed project inquiry form on Contact.
+- Server-side validation, honeypot protection, same-origin checks, and modest rate limiting.
+- Branded dark inquiry emails with visitor Reply-To support.
+- Separate Production and Preview environment configuration for inquiry testing.
+- Vercel Web Analytics integration.
+- Production and preview deployment QA improvements.
+
+The earlier V1 `Not Now` note about waiting for a verified custom domain before enabling Resend is now superseded by V1.1. It remains above only as part of the original planning record.
+
+## Current V1.1 Visual System
+
+The following planning mockup represents the visual language currently in use before the V1.2 redesign pass.
+
+![SammyCrypto V1.1 current visual system](docs/mockups/sammy-v1.1-current-mockup.svg)
+
+This is a planning mockup, not a pixel-perfect screenshot. It documents the current design language: dark editorial/archive styling, strong purple effects, full-screen menu behavior, mono/system metadata, rounded cards, grids, and glow treatment.
+
+---
+
+# 18. Why V1.2 Exists
+
+V1.2 is a visual-refinement release, not a new product direction.
+
+The primary mentor feedback was that the current UI can be immediately recognized as a vibe-coded design. The specific correction direction was to use flatter background colours, change/simplify the font treatment, and make the product feel more like a deliberately designed normal website while retaining personality.
+
+Additional review reinforced several useful polish targets:
+
+- Improve consistency across mixed Create and Work imagery by standardizing the frame/card system.
+- Reduce repeated loading friction.
+- Verify and improve mobile horizontal filter behavior.
+- Improve Contact form contrast and active/focus states.
+- Reduce visual redundancy where controls appear to communicate similar intent.
+
+Review suggestions that do not fit the product goal are explicitly rejected for V1.2, including wallet adapters, wallet verification, tipping, Phantom, Wagmi, and adding Web3 features simply for the sake of appearing more Web3.
+
+## V1.2 Objective
+
+Keep everything that makes Sammy's portfolio unique, but make it feel deliberately designed rather than obviously vibe-coded.
+
+The target character is:
+
+**Flat, confident, editorial, personal, and Web3-aware.**
+
+The redesign should not become a cyberpunk dashboard, a generic SaaS template, a corporate portfolio, or an AI-generated creative-development showcase.
+
+---
+
+# 19. V1.2 Master Checklist — Approved
+
+## 19.1 What Stays
+
+V1.2 preserves:
+
+- Sammy's purple identity.
+- Sammy's real PFP.
+- Dark mode as the primary visual experience.
+- Light mode support.
+- The existing multi-page structure.
+- Home, Create, Work, Services, About, and Contact.
+- Telegram as the primary conversion CTA.
+- X links.
+- The Resend inquiry flow.
+- Live DexScreener-backed project data.
+- Existing project history.
+- Existing Create archive links.
+- Approved legal pages.
+- Existing SEO and domain setup.
+- Approved website copy unless a separate copy change is reviewed and approved.
+
+V1.2 is mainly a visual-system redesign. It is not a rebuild of the product logic.
+
+## 19.2 Global Visual System
+
+Keep:
+
+- Near-black / dark identity.
+- Sammy purple.
+- Off-white primary text.
+- Premium Web3 character.
+
+Change:
+
+- Use flatter background colours.
+- Drastically reduce glow effects.
+- Reduce or remove decorative grid backgrounds.
+- Use fewer gradients.
+- Use simpler surfaces.
+- Use more restrained border-radius treatment.
+- Reduce decorative borders.
+- Reduce cyberpunk/dashboard styling.
+
+Purple should behave as a deliberate accent rather than an ambient effect covering entire pages.
+
+## 19.3 Typography
+
+V1.2 should use a maximum of two primary fonts:
+
+- One strong display/heading font.
+- One clean sans-serif for body and UI.
+
+Monospace treatment should become rare and intentional rather than appearing throughout the interface.
+
+Reduce:
+
+- Tiny system labels.
+- Terminal-style metadata.
+- Excessive uppercase labels.
+- Oversized headline treatment.
+
+The final font pairing should be visually tested before implementation rather than chosen blindly.
+
+## 19.4 Navigation
+
+Desktop direction:
+
+- Use a more recognizable visible navigation system for Create, Work, Services, About, and Contact.
+- Keep SammyCrypto branding clear.
+- Keep a clear primary CTA.
+
+Mobile direction:
+
+- Retain a compact menu button / drawer where appropriate.
+
+The navigation can remain premium without turning navigation itself into a large experimental experience.
+
+## 19.5 Loader
+
+The branded loader stays.
+
+V1.2 behavior:
+
+- Show the loader on the first visit in a browsing session.
+- Store the session state with `sessionStorage`.
+- Do not replay the long loader during normal route navigation in the same session.
+- Do not replay it simply because the visitor returns to Home in the same session.
+- Allow it to appear again after the browsing session genuinely ends and the visitor returns later.
+- Target a much faster branded intro, approximately 1 to 1.5 seconds, subject to visual testing.
+
+The loader should feel like a short identity moment, not artificial waiting.
+
+## 19.6 Home
+
+Keep:
+
+- Sammy PFP.
+- Approved positioning and copy.
+- Telegram CTA.
+- Explore Archive CTA.
+- Core capability information.
+
+Redesign:
+
+- Reduce hero headline scale.
+- Improve whitespace and balance.
+- Use a flatter background.
+- Integrate the PFP more deliberately.
+- Reduce system labels.
+- Simplify capability presentation.
+- Reduce grid and glow treatment.
+- Improve conventional reading hierarchy.
+
+The homepage should remain visually strong without making decorative CSS the main event.
+
+## 19.7 Create
+
+Keep:
+
+- Real posts.
+- Real titles.
+- Real dates.
+- Real categories.
+- Real X links.
+- Existing intentional placeholders where covers are unavailable.
+- Existing X CDN covers until replacement assets are provided.
+
+Improve:
+
+- Standardize image containers.
+- Use consistent visual ratios where appropriate.
+- Use consistent card padding and borders.
+- Establish a common typography hierarchy.
+- Simplify category filters.
+- Improve mobile archive behavior.
+- Prevent confusing hard clipping of horizontally scrollable controls.
+- Make category/read metadata clearer.
+- Reduce pill-heavy UI.
+
+Different source images are allowed to remain visually different. The shared card/frame system should make them feel like one curated archive.
+
+## 19.8 Work
+
+Keep:
+
+- Verified project information.
+- Real project images.
+- Roles and results.
+- Confidential/private labels where applicable.
+- Dynamic DexScreener market-cap data.
+
+Improve:
+
+- Standardize project-card structure.
+- Simplify borders and backgrounds.
+- Make role/results hierarchy clearer.
+- Clean up live-data presentation.
+- Reduce decorative noise.
+- Improve mobile scanning.
+
+Live market-cap data must remain dynamic rather than becoming hard-coded.
+
+## 19.9 Services
+
+Keep:
+
+- Approved service names.
+- Approved descriptions.
+- Existing Telegram prefills and service-specific contact behavior.
+
+Improve:
+
+- Make each service communicate service name, explanation, and action clearly.
+- Reduce excess system styling.
+- Reduce decorative labels.
+- Reduce unnecessary card effects.
+
+No service-copy rewrite is included unless separately reviewed and approved.
+
+## 19.10 About
+
+Keep:
+
+- Approved About copy.
+- Sammy identity and PFP.
+- Confirmed capabilities.
+- Existing CTA behavior.
+
+Improve:
+
+- Use a more readable text width.
+- Simplify image treatment.
+- Simplify typography.
+- Improve whitespace.
+- Reduce decorative elements.
+
+No biography rewrite is included in V1.2.
+
+## 19.11 Contact
+
+Keep:
+
+- Resend.
+- Existing sender/recipient configuration.
+- Approved inquiry fields.
+- Approved service dropdown.
+- Telegram option.
+- Approved success/error copy.
+- Existing spam protection.
+
+Improve:
+
+- Increase input contrast.
+- Add obvious borders and focus states.
+- Improve spacing and hierarchy.
+- Improve the mobile form layout.
+- Review the visual relationship between `What do you need?` and the separate contact-topic area.
+
+Do not automatically remove either contact-intent control. First solve the issue as a design/hierarchy problem.
+
+## 19.12 Cards and Components
+
+V1.2 should establish a much tighter component language:
+
+- One primary card radius.
+- One main border treatment.
+- Predictable spacing scale.
+- Predictable image proportions.
+- Predictable CTA styling.
+- One clear tag/chip style only where tags genuinely make sense.
+
+Reduce the use of pills for controls that do not need to be pills.
+
+## 19.13 Mobile Polish
+
+V1.2 QA must explicitly verify:
+
+- Create filters do not clip confusingly.
+- No horizontal page overflow.
+- CTA tap targets remain large.
+- Cards remain readable.
+- The Home hero does not dominate several screens unnecessarily.
+- Contact form inputs are visually obvious.
+- Navigation works cleanly.
+- The loader does not repeatedly interrupt browsing.
+- Long titles wrap naturally.
+- Images crop intentionally.
+
+## 19.14 Motion
+
+Keep:
+
+- Subtle entry transitions.
+- Useful hover states.
+- Menu transitions.
+- Loader animation.
+- Useful card feedback.
+
+Reduce:
+
+- Unnecessary floating/glowing movement.
+- Decorative animation that does not communicate state or meaning.
+
+## 19.15 Content Rule
+
+V1.2 is not a content rewrite.
+
+The visual mockups are layout and design references only. Random placeholder names, stats, titles, pictures, service text, or example claims shown inside planning mockups must not replace the live approved content.
+
+Final implementation must use:
+
+- Sammy's real PFP.
+- Real project images.
+- Real Create content.
+- Approved website copy.
+- Approved service names and descriptions.
+- Existing Telegram and X links.
+- Existing Resend form behavior.
+- Existing live DexScreener data.
+
+Any new or changed website copy still requires separate review and approval before coding.
+
+---
+
+# 20. Proposed V1.2 Visual Direction
+
+The following mockup represents the approved design direction before implementation.
+
+![SammyCrypto V1.2 proposed visual direction](docs/mockups/sammy-v1.2-proposed-mockup.svg)
+
+This mockup is a visual direction reference. Final implementation must fit the cleaner layout system around Sammy's real approved content, imagery, links, integrations, and verified data rather than copying placeholder material from a mockup.
+
+---
+
+# 21. V1.2 Implementation Order
+
+Implementation should proceed in controlled phases after this PRD update is locked.
+
+## Phase A — Global System
+
+- Typography.
+- Colour tokens and flatter surfaces.
+- Desktop/mobile navigation.
+- Buttons.
+- Card system.
+- Shared spacing/radius/border rules.
+
+## Phase B — Home and Loader
+
+- Apply the new visual language to Home.
+- Implement the session-only loader behavior.
+- Shorten the loader experience.
+- Verify Home first on mobile and desktop before propagating the system.
+
+## Phase C — Create
+
+- Standardize archive cards.
+- Refine filters.
+- Improve mobile horizontal behavior.
+- Preserve all real links and content.
+
+## Phase D — Work
+
+- Standardize project cards.
+- Refine role/result hierarchy.
+- Preserve live DexScreener functionality and fallbacks.
+
+## Phase E — Services and About
+
+- Simplify both pages using the approved shared visual system.
+- Preserve approved copy.
+- Preserve service Telegram prefills.
+
+## Phase F — Contact
+
+- Improve input contrast, focus states, hierarchy, and responsive behavior.
+- Preserve the working Resend backend and approved inquiry copy.
+
+## Phase G — Full Responsive QA
+
+Verify:
+
+- Phone.
+- Tablet.
+- Desktop.
+- Dark mode.
+- Light mode.
+- Navigation.
+- Loader session behavior.
+- Create filters.
+- External links.
+- DexScreener data.
+- Contact form submission.
+- Resend email delivery.
+- Accessibility basics.
+- No new copy has slipped in without approval.
+
+Workflow remains:
+
+**Branch → Preview → Verify → Merge → Production Verify**
+
+---
+
+# 22. V1.2 — Not Now
+
+The following are explicitly outside the V1.2 redesign:
+
+- Wallet connection.
+- Phantom.
+- Wagmi.
+- Wallet verification.
+- Crypto tipping.
+- Authentication.
+- Client dashboards.
+- Trading features.
+- Heavy 3D.
+- Excessive parallax.
+- Custom cursors.
+- Sound effects.
+- AI chatbot.
+- New CMS.
+- New database.
+- Random Web3 integrations that do not serve the portfolio goal.
+- Major SEO rewrite.
+- Replacing every X CDN image without replacement assets.
+- New service categories or a major content rewrite.
+
+V1.2 is about design maturity, not adding more product surface area.
+
+---
+
+# 23. V1.2 Success Conditions and Approval Status
+
+V1.2 is successful when:
+
+- The site still feels distinctly like Sammy.
+- The design no longer immediately reads as a generic vibe-coded portfolio.
+- The backgrounds and surfaces feel flatter and more intentional.
+- Typography feels simpler and more coherent.
+- Home remains distinctive without overwhelming the viewport.
+- Create and Work feel curated despite mixed source imagery.
+- Mobile filters and layout behavior are obvious and usable.
+- Contact inputs and focus states are easy to understand.
+- The branded loader remains, but does not repeatedly block navigation.
+- Existing integrations and approved content continue to work unchanged.
+- The site feels like a deliberately designed premium personal portfolio.
+
+Primary V1.2 design rule:
+
+> If an element does not help Sammy communicate, navigate, convert, or prove his work, it probably does not need to be there.
+
+**Planning status:** V1.2 visual-refinement scope and master checklist were reviewed and approved on September 4, 2026. UI implementation has not started yet.
