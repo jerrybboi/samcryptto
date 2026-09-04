@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Preview redeploy marker after Resend environment variables were configured.
 const allowedServices = new Set([
   "Content Writing",
   "Ghostwriting",
