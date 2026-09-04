@@ -4,3 +4,9 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 640px) {
+  :global(.site-header__actions) {
+    margin-left: auto !important;
+  }
+}
