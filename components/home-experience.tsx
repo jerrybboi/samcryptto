@@ -52,7 +52,10 @@ export function HomeExperience() {
   return (
     <div className={styles.page}>
       {loaderVisible ? (
-        <div className={`${styles.loader} ${loaderExiting ? styles.loaderExit : ""}`}>
+        <div
+          className={`${styles.loader} ${loaderExiting ? styles.loaderExit : ""}`}
+          aria-busy="true"
+        >
           <div className={styles.loaderContent}>
             <div className={styles.loaderPortraitWrap} aria-hidden="true">
               <div className={styles.loaderRing} />
