@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import InquiryForm from "./inquiry-form";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = { title: "Contact" };
@@ -76,6 +77,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <InquiryForm />
 
       <section className={styles.categoriesSection}>
         <div className={styles.categoriesInner}>
