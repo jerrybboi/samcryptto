@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { MenuOverlay } from "@/components/menu-overlay";
 import { ThemeToggle } from "@/components/theme-toggle";
+import styles from "./site-header.module.css";
 
 const desktopRoutes = [
   ["Create", "/create"],
@@ -33,6 +34,18 @@ export function SiteHeader() {
   return (
     <>
       <header className="site-header">
+        <button
+          ref={menuButtonRef}
+          className={`menu-button ${styles.headerMenu}`}
+          type="button"
+          onClick={() => setMenuOpen(true)}
+          aria-expanded={menuOpen}
+          aria-controls="site-menu"
+          aria-haspopup="dialog"
+        >
+          MENU
+        </button>
+
         <Link className="brand" href="/" aria-label="Sammy Crypto home">
           SammyCrypto<span>.</span>
         </Link>
@@ -62,17 +75,6 @@ export function SiteHeader() {
 
         <div className="site-header__actions">
           <ThemeToggle />
-          <button
-            ref={menuButtonRef}
-            className="menu-button"
-            type="button"
-            onClick={() => setMenuOpen(true)}
-            aria-expanded={menuOpen}
-            aria-controls="site-menu"
-            aria-haspopup="dialog"
-          >
-            MENU
-          </button>
         </div>
       </header>
       <MenuOverlay open={menuOpen} onClose={closeMenu} />
