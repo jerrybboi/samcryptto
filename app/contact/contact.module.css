@@ -1,34 +1,18 @@
 .page {
   min-height: 100%;
+  background: var(--bg);
 }
 
 .hero {
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
 }
 
-.heroGrid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.3;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, black, transparent 82%);
-}
-
+.heroGrid,
 .heroGlow {
-  position: absolute;
-  width: 34rem;
-  height: 34rem;
-  right: -12rem;
-  top: -13rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 28%, transparent), transparent 70%);
-  filter: blur(22px);
-  pointer-events: none;
+  display: none;
 }
 
 .heroInner,
@@ -42,197 +26,227 @@
 
 .heroInner {
   position: relative;
-  z-index: 1;
-  padding: clamp(5rem, 10vw, 8.5rem) 0 clamp(4rem, 8vw, 7rem);
+  padding: clamp(70px, 9vw, 110px) 0 clamp(58px, 8vw, 90px);
 }
 
 .kicker,
 .cardLabel,
 .sectionLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-body), sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
+  font-weight: 700;
 }
 
 .kicker {
-  margin-top: 1.1rem;
-  color: var(--accent);
-  font-size: 0.76rem;
+  margin-top: 18px;
+  color: var(--accent-strong);
+  font-size: 0.78rem;
 }
 
 .hero h1 {
-  max-width: 880px;
-  margin: 1.7rem 0 0;
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 7.5vw, 6.8rem);
-  line-height: 0.96;
-  letter-spacing: -0.045em;
-  font-weight: 500;
+  max-width: 900px;
+  margin: 24px 0 0;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(2.8rem, 6.4vw, 5.6rem);
+  line-height: 1.01;
+  letter-spacing: -0.052em;
+  font-weight: 650;
 }
 
 .intro {
   max-width: 760px;
-  margin: 2rem 0 0;
-  color: var(--muted);
-  font-size: clamp(1rem, 1.7vw, 1.18rem);
-  line-height: 1.8;
+  margin: 22px 0 0;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.72;
 }
 
 .intro + .intro {
-  margin-top: 0.65rem;
+  margin-top: 8px;
 }
 
 .channelsSection {
-  padding: clamp(4rem, 7vw, 6rem) 0;
-  border-bottom: 1px solid var(--border);
+  padding: clamp(58px, 8vw, 94px) 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .channelsGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 16px;
 }
 
 .channelCard {
   position: relative;
-  min-height: 320px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  padding: clamp(22px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
   overflow: hidden;
+  transition: transform 160ms ease, border-color 160ms ease;
 }
 
 .channelCard:first-child {
-  border-color: color-mix(in srgb, var(--accent) 60%, var(--border));
-  background:
-    radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 40%),
-    color-mix(in srgb, var(--surface) 95%, transparent);
+  border-color: var(--line-strong);
+  background: var(--surface);
+}
+
+.channelCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
 }
 
 .cardLabel {
   margin: 0;
-  color: var(--accent);
-  font-size: 0.72rem;
+  color: var(--accent-strong);
+  font-size: 0.7rem;
 }
 
 .channelCard h2 {
-  margin: 2rem 0 0;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3vw, 3.1rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  margin: 30px 0 0;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
 }
 
 .channelCard p {
-  margin: 1rem 0 0;
-  color: var(--muted);
-  line-height: 1.7;
+  margin: 14px 0 0;
+  color: var(--text-muted);
+  line-height: 1.68;
 }
 
 .emailAddress {
   display: inline-block;
-  margin-top: 0.85rem;
-  color: var(--foreground) !important;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
+  margin-top: 12px;
+  color: var(--text) !important;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
   word-break: break-word;
 }
 
 .channelLink {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 42px;
   margin-top: auto;
-  padding-top: 2rem;
-  color: var(--foreground);
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
+  padding: 0 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  color: var(--text);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
+  transition: transform 150ms ease, border-color 150ms ease, color 150ms ease, background-color 150ms ease;
 }
 
 .channelLink:hover {
-  color: var(--accent);
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  background: var(--accent-soft);
 }
 
 .inquirySection {
-  padding: clamp(4rem, 7vw, 6.5rem) 0;
-  border-bottom: 1px solid var(--border);
+  padding: clamp(58px, 8vw, 94px) 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .inquiryPanel {
   position: relative;
   overflow: hidden;
-  padding: clamp(1.5rem, 4vw, 3rem);
-  border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--border));
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 38%),
-    color-mix(in srgb, var(--surface) 96%, transparent);
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: var(--surface);
 }
 
 .inquiryForm {
-  margin-top: 1.75rem;
+  margin-top: 24px;
 }
 
 .formGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 16px;
 }
 
 .field {
   display: grid;
-  gap: 0.6rem;
-  color: var(--foreground);
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  gap: 8px;
+  color: var(--text);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
 }
 
 .field span {
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .field input,
 .field select,
 .field textarea {
   width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--background);
-  color: var(--foreground);
-  font: inherit;
-  font-family: var(--font-body);
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), sans-serif;
   font-size: 1rem;
+  font-weight: 450;
   letter-spacing: 0;
   outline: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: color-mix(in srgb, var(--accent) 44%, var(--line-strong));
 }
 
 .field input,
 .field select {
   min-height: 54px;
-  padding: 0 1rem;
+  padding: 0 15px;
 }
 
 .field textarea {
-  min-height: 180px;
-  padding: 1rem;
+  min-height: 190px;
+  padding: 15px;
   resize: vertical;
   line-height: 1.6;
 }
 
 .field input:focus,
 .field select:focus,
-.field textarea:focus {
-  border-color: color-mix(in srgb, var(--accent) 75%, var(--border));
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 13%, transparent);
+.field textarea:focus,
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  background: var(--surface-strong);
+}
+
+.field select option {
+  background: var(--bg);
+  color: var(--text);
 }
 
 .messageField {
-  margin-top: 1rem;
+  margin-top: 16px;
 }
 
 .honeypot {
@@ -248,8 +262,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1.4rem;
+  gap: 14px;
+  margin-top: 20px;
 }
 
 .formActions button:disabled {
@@ -258,102 +272,122 @@
 }
 
 .telegramFallback {
-  color: var(--foreground);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  color: var(--text);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
   text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
 }
 
 .telegramFallback:hover {
-  color: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  background: var(--accent-soft);
 }
 
 .formStatus {
   min-height: 0;
-  margin-top: 1.2rem;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
 }
 
 .formStatus:empty {
   margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .formStatus strong {
   display: block;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  color: var(--accent-strong);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
 }
 
 .formStatus p {
   max-width: 680px;
-  margin: 0.55rem 0 0;
-  color: var(--muted);
+  margin: 8px 0 0;
+  color: var(--text-muted);
   line-height: 1.65;
 }
 
 .categoriesSection {
-  padding: clamp(4rem, 7vw, 6.5rem) 0;
-  border-bottom: 1px solid var(--border);
+  padding: clamp(54px, 7vw, 82px) 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .sectionLabel {
-  margin: 0 0 1.5rem;
-  color: var(--muted);
-  font-size: 0.72rem;
+  margin: 0 0 18px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
 }
 
 .categoryGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
 }
 
 .categoryTag {
-  padding: 0.82rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
 }
 
 .closingSection {
-  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  padding: clamp(64px, 8vw, 100px) 0;
 }
 
 .closing {
   position: relative;
   overflow: hidden;
-  padding: clamp(2rem, 5vw, 4rem);
-  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 90% 20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 42%),
-    var(--surface);
+  padding: clamp(30px, 6vw, 54px);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: var(--surface);
 }
 
 .closing h2 {
   max-width: 700px;
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 4.6rem);
   line-height: 1;
-  letter-spacing: -0.04em;
-  font-weight: 500;
+  letter-spacing: -0.05em;
+  font-weight: 650;
 }
 
 .closing p {
   max-width: 650px;
-  margin: 1.25rem 0 0;
-  color: var(--muted);
-  line-height: 1.75;
+  margin: 18px 0 0;
+  color: var(--text-muted);
+  line-height: 1.68;
 }
 
 .closing a {
-  margin-top: 2rem;
+  margin-top: 26px;
 }
 
 @media (max-width: 900px) {
@@ -362,7 +396,11 @@
   }
 
   .channelCard {
-    min-height: 270px;
+    min-height: 250px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -382,21 +420,17 @@
   }
 
   .heroInner {
-    padding-top: 4rem;
+    padding-top: 64px;
   }
 
   .hero h1 {
-    font-size: clamp(2.8rem, 16vw, 4.4rem);
+    font-size: clamp(2.7rem, 12vw, 4.35rem);
   }
 
-  .channelCard {
-    border-radius: 20px;
-    padding: 1.25rem;
-  }
-
+  .channelCard,
   .inquiryPanel,
   .closing {
-    border-radius: 22px;
+    border-radius: 12px;
   }
 
   .formActions {
@@ -408,5 +442,20 @@
   .telegramFallback {
     width: 100%;
     text-align: center;
+  }
+
+  .categoryGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .channelCard,
+  .channelLink,
+  .telegramFallback,
+  .field input,
+  .field select,
+  .field textarea {
+    transition: none;
   }
 }
