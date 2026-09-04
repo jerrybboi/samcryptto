@@ -6,7 +6,7 @@
 }
 
 @media (max-width: 640px) {
-  :global(.site-header__actions) {
+  .headerActions {
     position: absolute;
     top: 50%;
     right: max(14px, env(safe-area-inset-right));
