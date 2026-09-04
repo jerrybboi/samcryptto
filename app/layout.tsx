@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import {
-  IBM_Plex_Mono,
-  Instrument_Serif,
-  Inter,
-  Space_Grotesk,
-} from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-const heading = Space_Grotesk({
+const heading = Manrope({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
@@ -19,20 +14,6 @@ const heading = Space_Grotesk({
 const body = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  display: "swap",
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
-const editorial = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-editorial",
   display: "swap",
 });
 
@@ -91,7 +72,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>
-      <body className={`${heading.variable} ${body.variable} ${mono.variable} ${editorial.variable}`}>
+      <body className={`${heading.variable} ${body.variable}`}>
         <div className="site-frame">
           <SiteHeader />
           <main className="site-main">{children}</main>
