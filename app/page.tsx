@@ -1,11 +1,5 @@
-import { PageShell } from "@/components/page-shell";
+import { HomeExperience } from "@/components/home-experience";
 
 export default function HomePage() {
-  return (
-    <PageShell
-      eyebrow="01 / HOME"
-      title="SammyCrypto."
-      description="Phase 1 foundation is live. The final homepage experience, loader and content arrive in Phase 2."
-    />
-  );
+  return <HomeExperience />;
 }
