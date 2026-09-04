@@ -4,6 +4,7 @@ type LegalSection = {
   title: string;
   paragraphs?: string[];
   bullets?: string[];
+  afterBullets?: string[];
 };
 
 type LegalPageProps = {
@@ -45,6 +46,9 @@ export function LegalPage({ title, updated, intro, sections }: LegalPageProps) {
                   ))}
                 </ul>
               ) : null}
+              {section.afterBullets?.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </article>
           ))}
         </div>
