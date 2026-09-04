@@ -33,6 +33,7 @@
 
 .heroInner,
 .channelsInner,
+.inquiryInner,
 .categoriesInner,
 .closingInner {
   width: min(1180px, calc(100% - 40px));
@@ -155,6 +156,143 @@
   color: var(--accent);
 }
 
+.inquirySection {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.inquiryPanel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--border));
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 38%),
+    color-mix(in srgb, var(--surface) 96%, transparent);
+}
+
+.inquiryForm {
+  margin-top: 1.75rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.6rem;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+}
+
+.field span {
+  text-transform: uppercase;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 0;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.field input,
+.field select {
+  min-height: 54px;
+  padding: 0 1rem;
+}
+
+.field textarea {
+  min-height: 180px;
+  padding: 1rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: color-mix(in srgb, var(--accent) 75%, var(--border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 13%, transparent);
+}
+
+.messageField {
+  margin-top: 1rem;
+}
+
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.formActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.formActions button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.telegramFallback {
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.telegramFallback:hover {
+  color: var(--accent);
+}
+
+.formStatus {
+  min-height: 0;
+  margin-top: 1.2rem;
+}
+
+.formStatus:empty {
+  margin-top: 0;
+}
+
+.formStatus strong {
+  display: block;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.formStatus p {
+  max-width: 680px;
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .categoriesSection {
   padding: clamp(4rem, 7vw, 6.5rem) 0;
   border-bottom: 1px solid var(--border);
@@ -228,9 +366,16 @@
   }
 }
 
+@media (max-width: 700px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 600px) {
   .heroInner,
   .channelsInner,
+  .inquiryInner,
   .categoriesInner,
   .closingInner {
     width: min(100% - 24px, 1180px);
@@ -249,7 +394,19 @@
     padding: 1.25rem;
   }
 
+  .inquiryPanel,
   .closing {
     border-radius: 22px;
+  }
+
+  .formActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .formActions button,
+  .telegramFallback {
+    width: 100%;
+    text-align: center;
   }
 }
