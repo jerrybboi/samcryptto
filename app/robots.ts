@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://samcryptto.vercel.app/sitemap.xml",
-    host: "https://samcryptto.vercel.app",
+    sitemap: "https://www.sammycryptto.fun/sitemap.xml",
+    host: "https://www.sammycryptto.fun",
   };
 }

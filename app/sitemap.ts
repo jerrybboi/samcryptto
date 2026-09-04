@@ -14,7 +14,7 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://samcryptto.vercel.app";
+  const baseUrl = "https://www.sammycryptto.fun";
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,

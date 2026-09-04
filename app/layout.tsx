@@ -36,7 +36,7 @@ const editorial = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://samcryptto.vercel.app"),
+  metadataBase: new URL("https://www.sammycryptto.fun"),
   title: {
     default: "Sammy Crypto | Web3 Content, Community & Research",
     template: "%s | Sammy Crypto",
