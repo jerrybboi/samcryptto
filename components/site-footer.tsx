@@ -3,7 +3,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer__identity">
         <span className="footer-orb" aria-hidden="true">S</span>
-        <span>© 2026 SAMMY CRYPT</span>
+        <span>© 2026 SAMMY CRYPTO</span>
       </div>
 
       <div className="site-footer__legal">
