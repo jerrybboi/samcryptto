@@ -10,6 +10,8 @@ const services = [
     description:
       "Threads, long form posts, project announcements, educational content and campaign copy built around the way a project actually speaks.",
     capabilities: "THREADS • ARTICLES • ANNOUNCEMENTS • EDUCATION • CAMPAIGN COPY",
+    inquiryMessage:
+      "Hi Sammy, I'm reaching out to inquire about your Content Writing service. I'd like to discuss content for my project.",
   },
   {
     number: "02",
@@ -17,6 +19,8 @@ const services = [
     description:
       "Writing for founders, projects and Web3 teams that need a consistent voice without having to write every post themselves.",
     capabilities: "FOUNDER CONTENT • PROJECT VOICE • LONG FORM • X CONTENT",
+    inquiryMessage:
+      "Hi Sammy, I'm reaching out to inquire about your Ghostwriting service. I'd like to discuss how you can help with the voice and content for my project.",
   },
   {
     number: "03",
@@ -24,6 +28,8 @@ const services = [
     description:
       "Helping projects explain what they do, why it matters and how to communicate it in a way people can actually remember.",
     capabilities: "POSITIONING • STORYTELLING • MESSAGING • TONE",
+    inquiryMessage:
+      "Hi Sammy, I'm reaching out to inquire about your Narrative & Brand Voice service. I'd like to discuss positioning and messaging for my project.",
   },
   {
     number: "04",
@@ -31,6 +37,8 @@ const services = [
     description:
       "Content and communication for communities, including announcements, engagement pushes, project messaging and campaign support.",
     capabilities: "COMMUNITY CONTENT • ENGAGEMENT • ANNOUNCEMENTS • SUPPORT",
+    inquiryMessage:
+      "Hi Sammy, I'm reaching out to inquire about your Community Content & Support service. I'd like to discuss support for my project's community.",
   },
   {
     number: "05",
@@ -38,6 +46,8 @@ const services = [
     description:
       "Hosting and supporting X Spaces for projects that want better conversations, community visibility and structured discussions around their product or narrative.",
     capabilities: "SPACE HOSTING • PROJECT DISCUSSIONS • COMMUNITY CONVERSATIONS",
+    inquiryMessage:
+      "Hi Sammy, I'm reaching out to inquire about your X Space Hosting service. I'd like to discuss hosting a Space for my project.",
   },
   {
     number: "06",
@@ -45,6 +55,8 @@ const services = [
     description:
       "Researching Web3 products, narratives, ecosystems and market angles to help teams make better content and communication decisions.",
     capabilities: "RESEARCH • PROJECT SUPPORT • MARKET CONTEXT • WEB3",
+    inquiryMessage:
+      "Hi Sammy, I'm reaching out to inquire about your Research & Project Support service. I'd like to discuss research and support for my project.",
   },
 ];
 
@@ -67,28 +79,32 @@ export default function ServicesPage() {
       <section className={styles.servicesSection}>
         <div className={styles.servicesInner}>
           <div className={styles.serviceGrid}>
-            {services.map((service) => (
-              <article className={styles.card} key={service.number}>
-                <div className={styles.cardTop}>
-                  <p className={styles.serviceLabel}>SERVICE / {service.number}</p>
-                  <span className={styles.serviceNumber} aria-hidden="true">{service.number}</span>
-                </div>
+            {services.map((service) => {
+              const telegramHref = `https://t.me/sammygrace110?text=${encodeURIComponent(service.inquiryMessage)}`;
 
-                <div className={styles.cardBody}>
-                  <h2>{service.title}</h2>
-                  <p className={styles.description}>{service.description}</p>
-                  <p className={styles.capabilities}>{service.capabilities}</p>
-                  <a
-                    className={styles.serviceLink}
-                    href="https://t.me/sammygrace110"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    DISCUSS SERVICE ↗
-                  </a>
-                </div>
-              </article>
-            ))}
+              return (
+                <article className={styles.card} key={service.number}>
+                  <div className={styles.cardTop}>
+                    <p className={styles.serviceLabel}>SERVICE / {service.number}</p>
+                    <span className={styles.serviceNumber} aria-hidden="true">{service.number}</span>
+                  </div>
+
+                  <div className={styles.cardBody}>
+                    <h2>{service.title}</h2>
+                    <p className={styles.description}>{service.description}</p>
+                    <p className={styles.capabilities}>{service.capabilities}</p>
+                    <a
+                      className={styles.serviceLink}
+                      href={telegramHref}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      DISCUSS SERVICE ↗
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
