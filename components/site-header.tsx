@@ -61,7 +61,7 @@ export function SiteHeader() {
           </Link>
         </nav>
 
-        <div className="site-header__actions">
+        <div className={`site-header__actions ${styles.headerActions}`}>
           <ThemeToggle />
           <button
             ref={menuButtonRef}
