@@ -6,11 +6,11 @@ export function SiteFooter() {
         <span>© 2026 SAMMY CRYPT</span>
       </div>
 
-      <div className="site-footer__legal" aria-label="Legal links pending final content">
-        <span>Terms</span>
-        <span>Privacy</span>
-        <span>Disclaimer</span>
-        <span>Cookies</span>
+      <div className="site-footer__legal">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/cookies">Cookies</a>
       </div>
 
       <div className="site-footer__links">
