@@ -17,12 +17,28 @@ export function HomeExperience() {
   const [statusIndex, setStatusIndex] = useState(0);
 
   useEffect(() => {
+    const alreadySeen = document.documentElement.dataset.sammyIntro === "seen";
+
+    if (alreadySeen) {
+      setLoaderVisible(false);
+      return;
+    }
+
+    try {
+      sessionStorage.setItem("sammy-intro-seen", "1");
+    } catch (_) {
+      // The intro still works if session storage is unavailable.
+    }
+
     const statusTimer = window.setInterval(() => {
       setStatusIndex((current) => (current + 1) % loaderLines.length);
-    }, 720);
+    }, 300);
 
-    const exitTimer = window.setTimeout(() => setLoaderExiting(true), 3000);
-    const hideTimer = window.setTimeout(() => setLoaderVisible(false), 3500);
+    const exitTimer = window.setTimeout(() => setLoaderExiting(true), 1000);
+    const hideTimer = window.setTimeout(() => {
+      setLoaderVisible(false);
+      document.documentElement.dataset.sammyIntro = "seen";
+    }, 1250);
 
     return () => {
       window.clearInterval(statusTimer);
@@ -49,49 +65,47 @@ export function HomeExperience() {
       ) : null}
 
       <section className={styles.hero}>
-        <div className={styles.grid} aria-hidden="true" />
-        <div className={styles.glow} aria-hidden="true" />
-
         <div className={styles.inner}>
-          <div className={styles.copy}>
-            <p className="system-label">01 / HOME</p>
+          <p className="system-label">01 / HOME</p>
 
-            <div className={styles.identityRow}>
+          <div className={styles.heroLayout}>
+            <div className={styles.copy}>
               <p className={styles.identity}>DEFI ADVOCATE • CONTENT CREATOR • SPACE HOST</p>
-              <div className={styles.avatar} aria-hidden="true">
-                <img src="/sammy-pfp.webp" alt="" />
+
+              <h1 className={styles.title}>
+                I turn Web3 ideas into narratives people understand, remember and connect with.
+              </h1>
+
+              <p className={styles.description}>
+                Sammy Crypt works across Web3 content, ghostwriting, community, DeFi education and project narratives. He helps projects communicate clearly, build attention and stay connected to their communities.
+              </p>
+
+              <div className={styles.actions}>
+                <a
+                  className={`primary-button ${styles.primary}`}
+                  href="https://t.me/sammygrace110"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  MESSAGE ME ON TELEGRAM
+                </a>
+                <Link className={styles.secondary} href="/create">
+                  EXPLORE ARCHIVE →
+                </Link>
+              </div>
+
+              <div className={styles.capabilities} aria-label="Core capabilities">
+                <span>CONTENT</span>
+                <span>GHOSTWRITING</span>
+                <span>COMMUNITY</span>
+                <span>DEFI</span>
+                <span>SPACE HOSTING</span>
+                <span>NARRATIVE</span>
               </div>
             </div>
 
-            <h1 className={styles.title}>
-              I turn Web3 ideas into narratives people understand, remember and connect with.
-            </h1>
-
-            <p className={styles.description}>
-              Sammy Crypt works across Web3 content, ghostwriting, community, DeFi education and project narratives. He helps projects communicate clearly, build attention and stay connected to their communities.
-            </p>
-
-            <div className={styles.actions}>
-              <a
-                className={`primary-button ${styles.primary}`}
-                href="https://t.me/sammygrace110"
-                target="_blank"
-                rel="noreferrer"
-              >
-                MESSAGE ME ON TELEGRAM
-              </a>
-              <Link className={styles.secondary} href="/create">
-                EXPLORE ARCHIVE →
-              </Link>
-            </div>
-
-            <div className={styles.capabilities} aria-label="Core capabilities">
-              <span>CONTENT</span>
-              <span>GHOSTWRITING</span>
-              <span>COMMUNITY</span>
-              <span>DEFI</span>
-              <span>SPACE HOSTING</span>
-              <span>NARRATIVE</span>
+            <div className={styles.portraitFrame} aria-hidden="true">
+              <img src="/sammy-pfp.webp" alt="" />
             </div>
           </div>
         </div>
