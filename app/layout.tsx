@@ -66,6 +66,7 @@ const themeBootScript = `
 })();
 `;
 
+// Keeps the Phase B intro decision available before the first client render.
 const introBootScript = `
 (function () {
   try {
