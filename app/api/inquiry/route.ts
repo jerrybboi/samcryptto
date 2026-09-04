@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Preview redeploy marker after Preview environment variables were enabled.
+// Preview redeploy marker after shared Preview environment variables were enabled.
 const allowedServices = new Set([
   "Content Writing",
   "Ghostwriting",
