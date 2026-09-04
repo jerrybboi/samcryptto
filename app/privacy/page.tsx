@@ -17,6 +17,9 @@ const sections = [
       "an on-site inquiry form",
       "profile creation",
     ],
+    afterBullets: [
+      "The website therefore does not currently ask visitors to directly submit personal information through the site itself.",
+    ],
   },
   {
     title: "2. Information You Choose to Provide",
@@ -31,6 +34,9 @@ const sections = [
       "project information",
       "service requirements",
       "other information you choose to include in your message",
+    ],
+    afterBullets: [
+      "That information is used to respond to your inquiry and discuss possible work, collaboration or communication.",
     ],
   },
   {
@@ -47,6 +53,9 @@ const sections = [
       "request information",
       "timestamps",
       "technical logs",
+    ],
+    afterBullets: [
+      "This information may be processed by the hosting provider according to its own privacy practices.",
     ],
   },
   {
@@ -69,6 +78,10 @@ const sections = [
       "DEX Screener",
       "project websites",
       "other Web3 platforms and services",
+    ],
+    afterBullets: [
+      "When you visit or interact with an external service, that service may collect or process information according to its own privacy policy.",
+      "Sammy Crypt does not control the privacy practices of third-party platforms.",
     ],
   },
   {
