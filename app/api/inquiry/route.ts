@@ -118,17 +118,19 @@ export async function POST(request: NextRequest) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="color-scheme" content="dark only">
+  <meta name="supported-color-schemes" content="dark only">
 </head>
-<body style="margin:0;background-color:#0b0b0d;color:#f4f1ea;font-family:Arial,Helvetica,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#0b0b0d;">
+<body bgcolor="#0b0b0d" style="margin:0;background-color:#0b0b0d;background-image:linear-gradient(#0b0b0d,#0b0b0d);color:#f4f1ea;font-family:Arial,Helvetica,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0b0b0d" style="width:100%;background-color:#0b0b0d;background-image:linear-gradient(#0b0b0d,#0b0b0d);">
     <tr>
-      <td align="center" bgcolor="#0b0b0d" style="padding-top:32px;padding-right:16px;padding-bottom:32px;padding-left:16px;">
-        <table width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background-color:#151519;border:1px solid #2a2a31;border-radius:18px;">
+      <td align="center" bgcolor="#0b0b0d" style="padding-top:32px;padding-right:16px;padding-bottom:32px;padding-left:16px;background-color:#0b0b0d;background-image:linear-gradient(#0b0b0d,#0b0b0d);">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#151519" style="width:100%;max-width:600px;background-color:#151519;background-image:linear-gradient(#151519,#151519);border:1px solid #6f4a8e;border-top:4px solid #a970df;border-radius:18px;">
           <tr>
-            <td bgcolor="#151519" style="padding-top:28px;padding-right:28px;padding-bottom:28px;padding-left:28px;">
-              <p style="margin-top:0;margin-right:0;margin-bottom:24px;margin-left:0;font-size:22px;line-height:30px;color:#f4f1ea;font-family:Arial,Helvetica,sans-serif;font-weight:700;">New inquiry from sammycryptto.fun</p>
+            <td bgcolor="#151519" style="padding-top:28px;padding-right:28px;padding-bottom:28px;padding-left:28px;background-color:#151519;background-image:linear-gradient(#151519,#151519);">
+              <p style="margin-top:0;margin-right:0;margin-bottom:24px;margin-left:0;font-size:22px;line-height:30px;color:#cda7ef;font-family:Arial,Helvetica,sans-serif;font-weight:700;">New inquiry from sammycryptto.fun</p>
               <p style="margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;font-size:15px;line-height:23px;color:#d8d4cc;font-family:Arial,Helvetica,sans-serif;"><strong style="color:#f4f1ea;">Name:</strong> ${escapeHtml(name)}</p>
-              <p style="margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;font-size:15px;line-height:23px;color:#d8d4cc;font-family:Arial,Helvetica,sans-serif;"><strong style="color:#f4f1ea;">Email:</strong> ${escapeHtml(email)}</p>
+              <p style="margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;font-size:15px;line-height:23px;color:#d8d4cc;font-family:Arial,Helvetica,sans-serif;"><strong style="color:#f4f1ea;">Email:</strong> <a href="mailto:${escapeHtml(email)}" style="color:#cda7ef;text-decoration:underline;">${escapeHtml(email)}</a></p>
               <p style="margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;font-size:15px;line-height:23px;color:#d8d4cc;font-family:Arial,Helvetica,sans-serif;"><strong style="color:#f4f1ea;">Project / Brand:</strong> ${escapeHtml(project)}</p>
               <p style="margin-top:0;margin-right:0;margin-bottom:22px;margin-left:0;font-size:15px;line-height:23px;color:#d8d4cc;font-family:Arial,Helvetica,sans-serif;"><strong style="color:#f4f1ea;">Service:</strong> ${escapeHtml(service)}</p>
               <p style="margin-top:0;margin-right:0;margin-bottom:8px;margin-left:0;font-size:15px;line-height:23px;color:#f4f1ea;font-family:Arial,Helvetica,sans-serif;font-weight:700;">Message:</p>
