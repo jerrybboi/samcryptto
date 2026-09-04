@@ -39,6 +39,8 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: clip;
   background: var(--bg);
   color-scheme: dark;
   scroll-behavior: smooth;
@@ -52,11 +54,29 @@ body {
   --font-mono: var(--font-body);
   --font-editorial: var(--font-heading);
   margin: 0;
+  min-width: 0;
+  max-width: 100%;
   min-height: 100vh;
+  overflow-x: clip;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body), Arial, sans-serif;
   transition: background-color 180ms ease, color 180ms ease;
+}
+
+img,
+picture,
+video,
+svg {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  min-width: 0;
+  max-width: 100%;
 }
 
 a {
@@ -83,6 +103,7 @@ textarea:focus-visible {
 }
 
 .site-frame {
+  min-width: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -90,6 +111,15 @@ textarea:focus-visible {
 
 .site-main {
   flex: 1;
+  min-width: 0;
+}
+
+.site-main h1,
+.site-main h2,
+.site-main h3,
+.display-title,
+.display-copy {
+  overflow-wrap: break-word;
 }
 
 .site-header {
@@ -105,7 +135,8 @@ textarea:focus-visible {
 }
 
 .brand {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  min-width: 0;
   font-family: var(--font-heading), sans-serif;
   font-size: clamp(1.22rem, 2.6vw, 1.65rem);
   font-weight: 800;
@@ -161,6 +192,7 @@ textarea:focus-visible {
 }
 
 .site-header__actions {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -209,7 +241,8 @@ textarea:focus-visible {
   inset: 0;
   z-index: 100;
   overflow-y: auto;
-  padding: 24px clamp(20px, 6vw, 80px) 48px;
+  overscroll-behavior: contain;
+  padding: 24px clamp(20px, 6vw, 80px) max(48px, env(safe-area-inset-bottom));
   background: var(--bg);
   animation: overlayIn 160ms ease-out both;
 }
@@ -249,7 +282,7 @@ textarea:focus-visible {
 
 .menu-item {
   display: grid;
-  grid-template-columns: 40px 1fr 16px;
+  grid-template-columns: 40px minmax(0, 1fr) 16px;
   align-items: center;
   gap: 14px;
   min-height: clamp(68px, 9vw, 92px);
@@ -258,6 +291,7 @@ textarea:focus-visible {
   font-size: clamp(1.8rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
+  overflow-wrap: break-word;
   transition: color 150ms ease, background-color 150ms ease, padding 150ms ease;
 }
 
@@ -381,6 +415,7 @@ textarea:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
   min-height: 54px;
   padding: 0 24px;
   border-radius: var(--radius-sm);
@@ -388,7 +423,10 @@ textarea:focus-visible {
   color: #ffffff;
   font-family: var(--font-body), sans-serif;
   font-weight: 700;
+  line-height: 1.25;
   letter-spacing: 0.02em;
+  text-align: center;
+  white-space: normal;
   transition: background-color 150ms ease, transform 150ms ease;
 }
 
@@ -402,7 +440,7 @@ textarea:focus-visible {
 }
 
 .site-footer {
-  padding: 38px clamp(20px, 7vw, 96px) 46px;
+  padding: 38px clamp(20px, 7vw, 96px) max(46px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
   color: var(--text-muted);
   font-family: var(--font-body), sans-serif;
@@ -467,31 +505,37 @@ textarea:focus-visible {
 @media (max-width: 640px) {
   .site-header {
     min-height: 68px;
-    padding: 12px 18px;
+    padding: 10px 14px;
   }
 
   .brand {
-    font-size: 1.3rem;
+    font-size: 1.24rem;
+  }
+
+  .site-header__actions {
+    gap: 6px;
+    margin-left: 8px;
   }
 
   .icon-button {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
   .menu-button {
-    min-height: 40px;
-    padding: 0 14px;
+    min-height: 44px;
+    padding: 0 13px;
   }
 
   .menu-overlay {
-    padding: 16px 18px 34px;
+    padding: 16px 18px max(34px, env(safe-area-inset-bottom));
   }
 
   .menu-item {
-    grid-template-columns: 34px 1fr 12px;
+    grid-template-columns: 32px minmax(0, 1fr) 12px;
     min-height: 72px;
-    font-size: clamp(2rem, 11vw, 3.25rem);
+    gap: 10px;
+    font-size: clamp(1.85rem, 10vw, 3rem);
   }
 
   .page-shell {
@@ -509,7 +553,45 @@ textarea:focus-visible {
   }
 
   .site-footer {
-    padding: 30px 20px 40px;
+    padding: 30px 20px max(40px, env(safe-area-inset-bottom));
+  }
+
+  .site-footer__legal,
+  .site-footer__links {
+    gap: 4px 16px;
+  }
+
+  .site-footer__legal a,
+  .site-footer__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .brand {
+    font-size: 1.16rem;
+  }
+
+  .menu-button {
+    padding: 0 11px;
+  }
+
+  .menu-item {
+    font-size: clamp(1.72rem, 9.4vw, 2.4rem);
+  }
+}
+
+@media (pointer: coarse) {
+  .site-main button,
+  .site-main select {
+    min-height: 44px;
   }
 }
 
