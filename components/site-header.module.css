@@ -7,6 +7,10 @@
 
 @media (max-width: 640px) {
   :global(.site-header__actions) {
-    margin-left: auto !important;
+    position: absolute;
+    top: 50%;
+    right: max(14px, env(safe-area-inset-right));
+    margin-left: 0 !important;
+    transform: translateY(-50%);
   }
 }
