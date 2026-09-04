@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 const routes = [
   ["01", "Home", "/"],
@@ -19,16 +20,69 @@ type MenuOverlayProps = {
 
 export function MenuOverlay({ open, onClose }: MenuOverlayProps) {
   const pathname = usePathname();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    closeButtonRef.current?.focus();
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) return;
+
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, onClose]);
 
   if (!open) return null;
 
   return (
-    <div className="menu-overlay" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div
+      id="site-menu"
+      ref={dialogRef}
+      className="menu-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site navigation"
+    >
       <div className="menu-overlay__topline">
-        <Link href="/" className="brand" onClick={onClose}>
+        <Link href="/" className="brand" onClick={onClose} aria-label="Sammy Crypto home">
           SammyCrypto<span>.</span>
         </Link>
-        <button className="close-button" type="button" onClick={onClose} aria-label="Close menu">
+        <button
+          ref={closeButtonRef}
+          className="close-button"
+          type="button"
+          onClick={onClose}
+          aria-label="Close menu"
+        >
           ×
         </button>
       </div>
@@ -42,6 +96,7 @@ export function MenuOverlay({ open, onClose }: MenuOverlayProps) {
               href={href}
               onClick={onClose}
               className={`menu-item${active ? " menu-item--active" : ""}`}
+              aria-current={active ? "page" : undefined}
             >
               <span className="menu-item__number">{number}</span>
               <span>{label}</span>
