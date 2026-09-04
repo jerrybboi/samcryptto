@@ -66,11 +66,23 @@ const themeBootScript = `
 })();
 `;
 
+const introBootScript = `
+(function () {
+  try {
+    var seen = sessionStorage.getItem('sammy-intro-seen');
+    document.documentElement.dataset.sammyIntro = seen ? 'seen' : 'new';
+  } catch (_) {
+    document.documentElement.dataset.sammyIntro = 'new';
+  }
+})();
+`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+        <script dangerouslySetInnerHTML={{ __html: introBootScript }} />
       </head>
       <body className={`${heading.variable} ${body.variable}`}>
         <div className="site-frame">
