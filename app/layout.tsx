@@ -36,12 +36,39 @@ const editorial = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://samcryptto.vercel.app"),
   title: {
-    default: "SAMMY CRYPT",
-    template: "%s | SAMMY CRYPT",
+    default: "Sammy Crypto | Web3 Content, Community & Research",
+    template: "%s | Sammy Crypto",
   },
   description:
-    "The portfolio of Sammy Crypt — Web3 content, community, narrative, ghostwriting and project work.",
+    "Sammy Crypto is a Web3 content creator, ghostwriter, DeFi advocate and X Space host working across content, community, research and project narratives.",
+  applicationName: "Sammy Crypto",
+  openGraph: {
+    title: "Sammy Crypto",
+    description:
+      "Web3 content, ghostwriting, community, research, narratives and X Space hosting.",
+    url: "/",
+    siteName: "Sammy Crypto",
+    images: [
+      {
+        url: "/sammy-pfp.webp",
+        width: 1200,
+        height: 1200,
+        alt: "Sammy Crypto",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Sammy Crypto",
+    description:
+      "Web3 content, ghostwriting, community, research, narratives and X Space hosting.",
+    images: ["/sammy-pfp.webp"],
+    creator: "@samcryptto",
+  },
 };
 
 const themeBootScript = `
